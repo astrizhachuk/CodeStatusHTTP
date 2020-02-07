@@ -4,9 +4,7 @@ on:
   pull_request:
     branches:
     - master 
-  push: 
-    branches: 
-    - master
+  push:
 
 jobs:
   SonarScanner:
@@ -26,7 +24,6 @@ jobs:
     - name: Run SonarQube on pull request
       if: github.event_name == 'pull_request'
       run: sonar-scanner
-        -X
         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         -Dsonar.host.url=https://sonar.openbsl.ru
         -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}

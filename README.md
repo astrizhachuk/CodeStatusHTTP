@@ -1,6 +1,6 @@
 # Работа с кодами ответов HTTP для "1С:Предприятие 8"
 
-[![Quality Gate Status](https://sonar.openbsl.ru/api/project_badges/measure?project=CodeStatusHTTP&metric=alert_status)](https://sonar.openbsl.ru/dashboard?id=CodeStatusHTTP)
+[![Quality Gate Status](https://sonar.openbsl.ru/api/project_badges/measure?project=HTTPStatusCodes&metric=alert_status)](https://sonar.openbsl.ru/dashboard?id=HTTPStatusCodes)
 
 После проверки пары проектов с помощью [BSL Language Server](https://1c-syntax.github.io/bsl-language-server/) захотелось избавиться от "магических чисел" в коде при работе с HTTP-запросами. Использование данной небольшой библиотеки позволяет сделать работу с кодами ответов HTTP нагляднее и в соответствии со стандартами 1С.
 

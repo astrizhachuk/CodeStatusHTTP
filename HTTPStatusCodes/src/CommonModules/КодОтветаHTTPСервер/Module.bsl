@@ -15,7 +15,7 @@
 //   limitations under the License.
 //
 //
-// URL:    https://github.com/astrizhachuk/CodeStatusHTTP
+// URL:    https://github.com/astrizhachuk/HTTPStatusCodes
 // e-mail: strizhhh@mail.ru
 // Версия: 1.0.0
 //

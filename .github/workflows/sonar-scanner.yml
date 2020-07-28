@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   SonarScanner:
-    if: github.repository == 'astrizhachuk/CodeStatusHTTP'
+    if: github.repository == 'astrizhachuk/HTTPStatusCodes'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

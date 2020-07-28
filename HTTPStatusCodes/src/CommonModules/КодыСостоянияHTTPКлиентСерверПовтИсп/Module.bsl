@@ -1,25 +1,21 @@
-// КодОтветаHTTP: Работа с кодами ответов HTTP для 1С:Предприятие 8
+// HTTPStatusCodes - https://github.com/astrizhachuk/HTTPStatusCodes
+// Copyright © 2020 Alexander Strizhachuk
+// 
+// version: 2.0.0
 //
-// Copyright 2019 Alexander Strizhachuk
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
 //
-//   Licensed under the Apache License, Version 2.0 (the "License");
-//   you may not use this file except in compliance with the License.
-//   You may obtain a copy of the License at
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
 //
-//       http://www.apache.org/licenses/LICENSE-2.0
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-//   Unless required by applicable law or agreed to in writing, software
-//   distributed under the License is distributed on an "AS IS" BASIS,
-//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//   See the License for the specific language governing permissions and
-//   limitations under the License.
-//
-//
-// URL:    https://github.com/astrizhachuk/HTTPStatusCodes
-// e-mail: strizhhh@mail.ru
-// Версия: 1.0.0
-//
-// Требования: платформа 1С версии 8.3.10 и выше.
 #Область ПрограммныйИнтерфейс
 
 // Поиск числового кода ответа HTTP по его идентификатору (См. КодыОтветаHTTP()).
@@ -36,7 +32,7 @@
 	Перем КодыОтвета;
 	Перем Результат;
 
-	КодыОтвета = КодОтветаHTTPПовтИсп.КодыОтветаHTTP();
+	КодыОтвета = КодыСостоянияHTTPКлиентСерверПовтИсп.КодыОтветаHTTPПовтИсп();
 	
 	Результат = Неопределено;
 	
@@ -67,7 +63,7 @@
 	
 	Перем ИдентификаторыКодовОтвета;
 	
-	ИдентификаторыКодовОтвета = КодОтветаHTTPПовтИсп.ИдентификаторыКодовОтветаHTTP();
+	ИдентификаторыКодовОтвета = КодыСостоянияHTTPКлиентСерверПовтИсп.ИдентификаторыКодовОтветаHTTPПовтИсп();
 
 	Возврат ИдентификаторыКодовОтвета.Получить( Код );
 
@@ -86,7 +82,7 @@
 	
 	Перем ОписанияКодовОтвета;
 	
-	ОписанияКодовОтвета = КодОтветаHTTPПовтИсп.ОписанияКодовОтветаHTTP();
+	ОписанияКодовОтвета = КодыСостоянияHTTPКлиентСерверПовтИсп.ОписанияКодовОтветаHTTPПовтИсп();
 	
 	Возврат ОписанияКодовОтвета.Получить( ВРег(Идентификатор) );
 
@@ -671,11 +667,69 @@
 //		* Значение - Число - код ответа HTTP.
 //
 // Пример:
-//	CONTINUE = КодОтветаHTTP.КодыОтветаHTTP().CONTINUE;
+//	CONTINUE = КодыСостоянияHTTPКлиентСерверПовтИсп.КодыОтветаHTTP().CONTINUE;
 //
 Функция КодыОтветаHTTP() Экспорт
 	
-	Возврат КодОтветаHTTPПовтИсп.КодыОтветаHTTP();
+	Возврат КодыСостоянияHTTPКлиентСерверПовтИсп.КодыОтветаHTTPПовтИсп();
+	
+КонецФункции
+
+Функция КодыОтветаHTTPПовтИсп() Экспорт
+	
+	Перем ТаблицаКодовОтвета;
+	Перем Результат;
+	
+	Результат = Новый Структура();
+	
+	ТаблицаКодовОтвета = ОписаниеКодовСостояния();
+	
+	Для каждого КлючИЗначение Из ТаблицаКодовОтвета Цикл
+		
+	 	Результат.Вставить( КлючИЗначение.Значение.Имя, КлючИЗначение.Значение.Код );
+		
+	КонецЦикла;
+	
+	Возврат ( Новый ФиксированнаяСтруктура(Результат) );
+	
+КонецФункции
+
+
+Функция ИдентификаторыКодовОтветаHTTPПовтИсп() Экспорт
+	
+	Перем ТаблицаКодовОтвета;
+	Перем Результат;
+	
+	ТаблицаКодовОтвета = ОписаниеКодовСостояния();
+	
+	Результат = Новый Соответствие();
+	
+	Для каждого КлючИЗначение Из ТаблицаКодовОтвета Цикл
+		
+	 	Результат.Вставить( КлючИЗначение.Значение.Код, КлючИЗначение.Значение.Имя );
+		
+	КонецЦикла;
+	
+	Возврат ( Новый ФиксированноеСоответствие(Результат) );
+	
+КонецФункции
+
+Функция ОписанияКодовОтветаHTTPПовтИсп() Экспорт
+	
+	Перем ТаблицаКодовОтвета;
+	Перем Результат;
+	
+	Результат = Новый Соответствие();
+	
+	ТаблицаКодовОтвета = ОписаниеКодовСостояния();
+	
+	Для каждого КлючИЗначение Из ТаблицаКодовОтвета Цикл
+		
+	 	Результат.Вставить( КлючИЗначение.Значение.Имя, КлючИЗначение.Значение.ПолноеИмя );
+		
+	КонецЦикла;
+	
+	Возврат ( Новый ФиксированноеСоответствие(Результат) );
 	
 КонецФункции
 
@@ -697,5 +751,95 @@
 	Возврат Результат;
 
 КонецФункции
+
+Функция ОписаниеКодовСостояния()
+	
+	Перем Результат;
+	
+	Результат = Новый Соответствие;
+	
+	ДобавитьОписаниеКода( Результат, 100, "CONTINUE", "Continue");
+	ДобавитьОписаниеКода( Результат, 101, "SWITCHING_PROTOCOLS", "Switching Protocols");
+	ДобавитьОписаниеКода( Результат, 102, "PROCESSING", "Processing");
+	ДобавитьОписаниеКода( Результат, 103, "CHECKPOINT", "Checkpoint");
+	
+	ДобавитьОписаниеКода( Результат, 200, "OK", "OK" );
+	ДобавитьОписаниеКода( Результат, 201, "CREATED", "Created" );
+	ДобавитьОписаниеКода( Результат, 202, "ACCEPTED", "Accepted" );
+	ДобавитьОписаниеКода( Результат, 203, "NON_AUTHORITATIVE_INFORMATION", "Non-Authoritative Information" );
+	ДобавитьОписаниеКода( Результат, 204, "NO_CONTENT", "No Content" );
+	ДобавитьОписаниеКода( Результат, 205, "RESET_CONTENT", "Reset Content" );
+	ДобавитьОписаниеКода( Результат, 206, "PARTIAL_CONTENT", "Partial Content" );
+	ДобавитьОписаниеКода( Результат, 207, "MULTI_STATUS", "Multi-Status" );
+	ДобавитьОписаниеКода( Результат, 208, "ALREADY_REPORTED", "Already Reported" );
+	ДобавитьОписаниеКода( Результат, 226, "IM_USED", "IM Used" );
+	
+	ДобавитьОписаниеКода( Результат, 300, "MULTIPLE_CHOICES", "Multiple сhoices" );
+	ДобавитьОписаниеКода( Результат, 301, "MOVED_PERMANENTLY", "Moved Permanently" );
+	ДобавитьОписаниеКода( Результат, 302, "FOUND", "Found" );
+	ДобавитьОписаниеКода( Результат, 303, "SEE_OTHER", "See Other" );
+	ДобавитьОписаниеКода( Результат, 304, "NOT_MODIFIED", "Not Modified" );
+	ДобавитьОписаниеКода( Результат, 305, "USE_PROXY", "Use Proxy" );
+	ДобавитьОписаниеКода( Результат, 307, "TEMPORARY_REDIRECT", "Temporary Redirect" );
+	ДобавитьОписаниеКода( Результат, 308, "PERMANENT_REDIRECT", "Permanent Redirect" );
+	
+	ДобавитьОписаниеКода( Результат, 400, "BAD_REQUEST", "Bad Request" );
+	ДобавитьОписаниеКода( Результат, 401, "UNAUTHORIZED", "Unauthorized" );
+	ДобавитьОписаниеКода( Результат, 402, "PAYMENT_REQUIRED", "Payment Required" );
+	ДобавитьОписаниеКода( Результат, 403, "FORBIDDEN", "Forbidden" );
+	ДобавитьОписаниеКода( Результат, 404, "NOT_FOUND", "Not Found" );
+	ДобавитьОписаниеКода( Результат, 405, "METHOD_NOT_ALLOWED", "Method Not Allowed" );
+	ДобавитьОписаниеКода( Результат, 406, "NOT_ACCEPTABLE", "Not Acceptable" );
+	ДобавитьОписаниеКода( Результат, 407, "PROXY_AUTHENTICATION_REQUIRED", "Proxy Authentication Required" );
+	ДобавитьОписаниеКода( Результат, 408, "REQUEST_TIMEOUT", "Request Timeout" );
+	ДобавитьОписаниеКода( Результат, 409, "CONFLICT", "Conflict" );
+	ДобавитьОписаниеКода( Результат, 410, "GONE", "Gone" );
+	ДобавитьОписаниеКода( Результат, 411, "LENGTH_REQUIRED", "Length Required" );
+	ДобавитьОписаниеКода( Результат, 412, "PRECONDITION_FAILED", "Precondition Failed" );
+	ДобавитьОписаниеКода( Результат, 413, "PAYLOAD_TOO_LARGE", "Payload Too Large" );
+	ДобавитьОписаниеКода( Результат, 414, "URI_TOO_LONG", "URI Too Long" );
+	ДобавитьОписаниеКода( Результат, 415, "UNSUPPORTED_MEDIA_TYPE", "Unsupported Media Type" );
+	ДобавитьОписаниеКода( Результат, 416, "REQUESTED_RANGE_NOT_SATISFIABLE", "Requested range not satisfiable" );
+	ДобавитьОписаниеКода( Результат, 417, "EXPECTATION_FAILED", "Expectation Failed" );
+	ДобавитьОписаниеКода( Результат, 418, "I_AM_A_TEAPOT", "I'm a teapot" );
+	ДобавитьОписаниеКода( Результат, 421, "DESTINATION_LOCKED", "Destination Locked" );
+	ДобавитьОписаниеКода( Результат, 422, "UNPROCESSABLE_ENTITY", "Unprocessable Entity" );
+	ДобавитьОписаниеКода( Результат, 423, "LOCKED", "Locked" );
+	ДобавитьОписаниеКода( Результат, 424, "FAILED_DEPENDENCY", "Failed Dependency" );
+	ДобавитьОписаниеКода( Результат, 426, "UPGRADE_REQUIRED", "Upgrade Required" );
+	ДобавитьОписаниеКода( Результат, 428, "PRECONDITION_REQUIRED", "Precondition Required" );
+	ДобавитьОписаниеКода( Результат, 429, "TOO_MANY_REQUESTS", "Too Many Requests" );
+	ДобавитьОписаниеКода( Результат, 431, "REQUEST_HEADER_FIELDS_TOO_LARGE", "Request Header Fields Too Large" );
+	ДобавитьОписаниеКода( Результат, 451, "UNAVAILABLE_FOR_LEGAL_REASONS", "Unavailable For Legal Reasons" );
+
+	ДобавитьОписаниеКода( Результат, 500, "INTERNAL_SERVER_ERROR", "Internal Server Error" );
+	ДобавитьОписаниеКода( Результат, 501, "NOT_IMPLEMENTED", "Not Implemented" );
+	ДобавитьОписаниеКода( Результат, 502, "BAD_GATEWAY", "Bad Gateway" );
+	ДобавитьОписаниеКода( Результат, 503, "SERVICE_UNAVAILABLE", "Service Unavailable" );
+	ДобавитьОписаниеКода( Результат, 504, "GATEWAY_TIMEOUT", "Gateway Timeout" );
+	ДобавитьОписаниеКода( Результат, 505, "HTTP_VERSION_NOT_SUPPORTED", "HTTP Version not supported" );
+	ДобавитьОписаниеКода( Результат, 506, "VARIANT_ALSO_NEGOTIATES", "Variant Also Negotiates" );
+	ДобавитьОписаниеКода( Результат, 507, "INSUFFICIENT_STORAGE", "Insufficient Storage" );
+	ДобавитьОписаниеКода( Результат, 508, "LOOP_DETECTED", "Loop Detected" );
+	ДобавитьОписаниеКода( Результат, 509, "BANDWIDTH_LIMIT_EXCEEDED", "Bandwidth Limit Exceeded" );
+	ДобавитьОписаниеКода( Результат, 510, "NOT_EXTENDED", "Not Extended" );
+	ДобавитьОписаниеКода( Результат, 511, "NETWORK_AUTHENTICATION_REQUIRED", "Network Authentication Required" );
+
+	Возврат Результат;
+	
+КонецФункции
+
+Процедура ДобавитьОписаниеКода( Результат, Знач Код, Знач Имя, Знач ПолноеИмя )
+	
+	Перем Описание;
+	
+	Описание = Новый Структура();
+	Описание.Вставить( "Код",Код );
+	Описание.Вставить( "Имя",Имя );
+	Описание.Вставить( "ПолноеИмя", ПолноеИмя );
+
+	Результат.Вставить( Код, Описание );
+
+КонецПроцедуры
 
 #КонецОбласти

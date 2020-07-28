@@ -7,7 +7,7 @@
   </synonym>
   <synonym>
     <key>ru</key>
-    <value>КодыОтветаHTTP</value>
+    <value>КодыСостоянияHTTP</value>
   </synonym>
   <containedObjects classId="9cd510cd-abfc-11d4-9434-004095e12fc7" objectId="e818b4de-b6dd-46f6-a925-9807a26f407d"/>
   <containedObjects classId="9fcd25a0-4822-11d4-9414-008048da11f9" objectId="6ffa4894-47ac-4402-8cc9-efb15fcffd41"/>
@@ -50,8 +50,5 @@
     </synonym>
     <languageCode>en</languageCode>
   </languages>
-  <subsystems>Subsystem.КодыОтветаHTTP</subsystems>
-  <commonModules>CommonModule.КодОтветаHTTP</commonModules>
-  <commonModules>CommonModule.КодОтветаHTTPСервер</commonModules>
-  <commonModules>CommonModule.КодОтветаHTTPПовтИсп</commonModules>
+  <commonModules>CommonModule.КодыСостоянияHTTPКлиентСерверПовтИсп</commonModules>
 </mdclass:Configuration>

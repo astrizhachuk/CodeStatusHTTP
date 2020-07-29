@@ -47,6 +47,5 @@
     </extension>
     <languageCode>ru</languageCode>
   </languages>
-  <commonModules>CommonModule.Tests_КодОтветаHTTPСервер</commonModules>
-  <commonModules>CommonModule.Tests_КодОтветаHTTPКлиент</commonModules>
+  <commonModules>CommonModule.Tests_КодыСостоянияHTTPСервер</commonModules>
 </mdclass:Configuration>

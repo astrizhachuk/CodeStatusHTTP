@@ -85,6 +85,7 @@
 //		511, "NETWORK_AUTHENTICATION_REQUIRED", "Network Authentication Required"
 
 // BSLLS:CachedPublic-off
+// BSLLS:Typo-off
 #Область ПрограммныйИнтерфейс
 
 // Ищет трехзначный числовой код состояния HTTP по его идентификатору.

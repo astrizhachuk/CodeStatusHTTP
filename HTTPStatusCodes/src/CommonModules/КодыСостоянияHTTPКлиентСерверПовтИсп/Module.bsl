@@ -84,6 +84,7 @@
 //		510, "NOT_EXTENDED", "Not Extended"
 //		511, "NETWORK_AUTHENTICATION_REQUIRED", "Network Authentication Required"
 
+// BSLLS:CachedPublic-off
 #Область ПрограммныйИнтерфейс
 
 // Ищет трехзначный числовой код состояния HTTP по его идентификатору.

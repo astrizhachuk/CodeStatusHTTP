@@ -48,4 +48,5 @@
     <languageCode>ru</languageCode>
   </languages>
   <commonModules>CommonModule.Tests_КодыСостоянияHTTPСервер</commonModules>
+  <commonModules>CommonModule.Tests_КодыСостоянияHTTPКлиент</commonModules>
 </mdclass:Configuration>

@@ -371,7 +371,8 @@ Function IsAccepted( Val Code ) Export
 
 EndFunction
 
-// Determines whether the value belongs to the code 203, "NON_AUTHORITATIVE_INFORMATION", "Non-Authoritative Information".
+// Determines whether the value belongs to the code
+// 203, "NON_AUTHORITATIVE_INFORMATION", "Non-Authoritative Information".
 // 
 // Parameters:
 //  Code - Number - three-digit numeric HTTP status code;
@@ -687,7 +688,8 @@ Function IsNotAcceptable( Val Code ) Export
 
 EndFunction
 
-// Determines whether the value belongs to the code 407, "PROXY_AUTHENTICATION_REQUIRED", "Proxy Authentication Required".
+// Determines whether the value belongs to the code
+// 407, "PROXY_AUTHENTICATION_REQUIRED", "Proxy Authentication Required".
 // 
 // Parameters:
 //  Code - Number - three-digit numeric HTTP status code;
@@ -813,7 +815,8 @@ Function IsUnsupportedMedia( Val Code ) Export
 
 EndFunction
 
-// Determines whether the value belongs to the code 416, "REQUESTED_RANGE_NOT_SATISFIABLE", "Requested range not satisfiable".
+// Determines whether the value belongs to the code
+// 416, "REQUESTED_RANGE_NOT_SATISFIABLE", "Requested range not satisfiable".
 // 
 // Parameters:
 //  Code - Number - three-digit numeric HTTP status code;
@@ -953,7 +956,8 @@ Function IsTooManyRequests( Val Code ) Export
 
 EndFunction
 
-// Determines whether the value belongs to the code 431, "REQUEST_HEADER_FIELDS_TOO_LARGE", "Request Header Fields Too Large".
+// Determines whether the value belongs to the code
+// 431, "REQUEST_HEADER_FIELDS_TOO_LARGE", "Request Header Fields Too Large".
 // 
 // Parameters:
 //  Code - Number - three-digit numeric HTTP status code;
@@ -967,7 +971,8 @@ Function IsRequestHeaderTooLarge( Val Code ) Export
 
 EndFunction
 
-// Determines whether the value belongs to the code 451, "UNAVAILABLE_FOR_LEGAL_REASONS", "Unavailable For Legal Reasons".
+// Determines whether the value belongs to the code
+// 451, "UNAVAILABLE_FOR_LEGAL_REASONS", "Unavailable For Legal Reasons".
 // 
 // Parameters:
 //  Code - Number - three-digit numeric HTTP status code;
@@ -1139,7 +1144,8 @@ Function IsNotExtended( Val Code ) Export
 
 EndFunction
 
-// Determines whether the value belongs to the code 511, "NETWORK_AUTHENTICATION_REQUIRED", "Network Authentication Required".
+// Determines whether the value belongs to the code
+// 511, "NETWORK_AUTHENTICATION_REQUIRED", "Network Authentication Required".
 // 
 // Parameters:
 //  Code - Number - three-digit numeric HTTP status code;

@@ -86,7 +86,6 @@
 
 // BSLLS:CachedPublic-off
 // BSLLS:Typo-off
-
 #Region Public
 
 // Returns a three-digit numeric HTTP status code by its identifier.

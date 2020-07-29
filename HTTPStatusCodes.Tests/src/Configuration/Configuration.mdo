@@ -49,4 +49,6 @@
   </languages>
   <commonModules>CommonModule.Tests_КодыСостоянияHTTPСервер</commonModules>
   <commonModules>CommonModule.Tests_КодыСостоянияHTTPКлиент</commonModules>
+  <commonModules>CommonModule.Tests_HTTPStatusCodesServer</commonModules>
+  <commonModules>CommonModule.Tests_HTTPStatusCodesClient</commonModules>
 </mdclass:Configuration>

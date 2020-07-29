@@ -51,4 +51,5 @@
     <languageCode>en</languageCode>
   </languages>
   <commonModules>CommonModule.КодыСостоянияHTTPКлиентСерверПовтИсп</commonModules>
+  <commonModules>CommonModule.HTTPStatusCodesClientServerCached</commonModules>
 </mdclass:Configuration>

@@ -3,7 +3,7 @@
 [![Quality Gate Status](https://sonar.openbsl.ru/api/project_badges/measure?project=HTTPStatusCodes&metric=alert_status)](https://sonar.openbsl.ru/dashboard?id=HTTPStatusCodes)
 [![Maintainability Rating](https://sonar.openbsl.ru/api/project_badges/measure?project=HTTPStatusCodes&metric=sqale_rating)](https://sonar.openbsl.ru/dashboard?id=HTTPStatusCodes)
 
-*HTTP Status Codes module* defines a set of HTTP status codes, reason phrases, long descriptions written in English, and some operations on it. "Magic" numbers killer!
+*HTTP Status Codes* module defines a set of HTTP status codes, reason phrases, long descriptions written in English, and some operations on it. "Magic" numbers killer!
 
 See also:
 * [HTTPConnector](https://github.com/vbondarevsky/Connector)

@@ -16,7 +16,7 @@
 // Copyright © 2020 Alexander Strizhachuk
 // version: 2.0.0
 //
-//	Status Codes (RFC 2068):
+//	Status Codes (RFC 2068, 2518, 3229, 4918, 5842, 6585, 7231-7233):
 //		100, "CONTINUE", "Continue"
 // 		101, "SWITCHING_PROTOCOLS", "Switching Protocols"
 //      102, "PROCESSING", "Processing"
